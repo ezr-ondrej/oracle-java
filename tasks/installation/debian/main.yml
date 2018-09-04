@@ -4,6 +4,11 @@
 # Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
 #
 
+- name: debian | Add a key from a file on the Ansible server.
+  apt_key:
+    data: "{{ lookup('file', 'webupd8team.gpg') }}"
+    state: present
+
 - name: debian | ensure the apt repository key is present
   apt_key:
     id="{{ oracle_java_apt_repository_key }}"
