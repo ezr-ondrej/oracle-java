@@ -9,13 +9,13 @@
     data: "{{ lookup('file', 'webupd8team.gpg') }}"
     state: present
 
-- name: debian | ensure the apt repository key is present
-  apt_key:
-    id="{{ oracle_java_apt_repository_key }}"
-    keyserver=keyserver.ubuntu.com
-    state=present
-  when: oracle_java_apt_repository_key is defined and oracle_java_apt_repository_key
-  become: yes
+# - name: debian | ensure the apt repository key is present
+#   apt_key:
+#     id="{{ oracle_java_apt_repository_key }}"
+#     keyserver=keyserver.ubuntu.com
+#     state=present
+#   when: oracle_java_apt_repository_key is defined and oracle_java_apt_repository_key
+#   become: yes
 
 - name: debian | ensure the apt repository is present
   apt_repository:
