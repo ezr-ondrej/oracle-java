@@ -14,7 +14,7 @@
     id="{{ oracle_java_apt_repository_key }}"
     keyserver=keyserver.ubuntu.com
     state=present
-  when: oracle_java_apt_repository_key is defined
+  when: oracle_java_apt_repository_key is defined and oracle_java_apt_repository_key
   become: yes
 
 - name: debian | ensure the apt repository is present
